@@ -10,20 +10,20 @@ const terminal = readline.createInterface(process.stdin, process.stdout);
 const randomNumber = generateRandomNumber();
 
 function startGame() {
-  console.log('Game started');
+  terminal.write('Game started\n')
 
   terminal.question('Please write your number - ', (name) => {
     if (!checkIsValidUserInput(name)) {
-      console.log(`Invalid input ${name}, please use example: 1234`);
+      terminal.write(`Invalid input ${name}, please use example: 1234\n`);
       startGame();
 
       return;
     }
-
+    console.log(randomNumber);
     const result = getBullsAndCows(name, randomNumber);
 
-    console.log(`Result: bulls ${result.bulls} & cows ${result.cows}`);
-    console.log();
+    terminal.write(`Result: bulls ${result.bulls} & cows ${result.cows}\n`);
+    terminal.write('\n');
 
     if (result.bulls !== 4) {
       startGame();
@@ -31,7 +31,7 @@ function startGame() {
       return;
     }
 
-    console.log('Congratualtions you did it.');
+    terminal.write('Congratultions you nailed it\n');
 
     terminal.close();
   });
