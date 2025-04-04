@@ -13,7 +13,56 @@
  * Example: { bulls: 1, cows: 2 }
  */
 function getBullsAndCows(userInput, numberToGuess) {
-  /* Write your code here */
+  const user = String(userInput).split('');
+  const guess = String(numberToGuess).split('');
+  const bullAndCows = {
+    bulls: 0,
+    cows: 0,
+  };
+
+  const userObj = user.reduce((acc, value, index) => {
+    acc[value] = index;
+
+    return acc;
+  }, {});
+
+  const guessObj = guess.reduce((acc, value, index) => {
+    acc[value] = index;
+
+    return acc;
+  }, {});
+
+  for (const key in userObj) {
+    if (key in guessObj && userObj[key] !== guessObj[key]) {
+      bullAndCows.cows++;
+    } else if (userObj[key] === guessObj[key]) {
+      bullAndCows.bulls++;
+    }
+  }
+
+  // const userInputArr = [];
+  // const guessInputArr = [];
+
+  // for (let i = 0; i < user.length; i++) {
+  //   if (user[i] === guess[i]) {
+  //     bullAndCows.bulls++;
+  //     userInputArr[i] = true;
+  //     guessInputArr[i] = true;
+  //   }
+  // }
+
+  // for (let i = 0; i < user.length; i++) {
+  //   if (!userInputArr[i]) {
+  //     for (let j = 0; j < guess.length; j++) {
+  //       if (!guessInputArr[j] && user[i] === guess[j]) {
+  //         bullAndCows.cows++;
+  //         guessInputArr[j] = true;
+  //       }
+  //     }
+  //   }
+  // }
+
+  return bullAndCows;
 }
 
 module.exports = {
