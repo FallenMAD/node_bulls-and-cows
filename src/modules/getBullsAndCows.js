@@ -40,28 +40,6 @@ function getBullsAndCows(userInput, numberToGuess) {
     }
   }
 
-  // const userInputArr = [];
-  // const guessInputArr = [];
-
-  // for (let i = 0; i < user.length; i++) {
-  //   if (user[i] === guess[i]) {
-  //     bullAndCows.bulls++;
-  //     userInputArr[i] = true;
-  //     guessInputArr[i] = true;
-  //   }
-  // }
-
-  // for (let i = 0; i < user.length; i++) {
-  //   if (!userInputArr[i]) {
-  //     for (let j = 0; j < guess.length; j++) {
-  //       if (!guessInputArr[j] && user[i] === guess[j]) {
-  //         bullAndCows.cows++;
-  //         guessInputArr[j] = true;
-  //       }
-  //     }
-  //   }
-  // }
-
   return bullAndCows;
 }
 
